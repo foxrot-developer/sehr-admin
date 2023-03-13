@@ -17,6 +17,13 @@ export const adminLogin = (data, navigation) => dispatch => {
         });
 };
 
+export const adminLogout = (navigate) => dispatch => {
+    dispatch({
+        type: actionTypes.ADMIN_LOGOUT
+    });
+    navigate('/admin/login');
+};
+
 export const getAllBlogs = (token, page) => dispatch => {
     Axios.get(`blog/posts?page=${page}&limit=10`, { headers: { "Authorization": `Bearer ${token}` } })
         .then(response => {
@@ -26,6 +33,10 @@ export const getAllBlogs = (token, page) => dispatch => {
             });
         })
         .catch(error => {
+            if (error.response.data.message === 401) {
+                Toast.error('User session expired login again');
+                dispatch(adminLogout());
+            }
             Toast.error(error.response.data.message);
         });
 };
@@ -39,6 +50,10 @@ export const createBlog = (data, token, navigate) => dispatch => {
             Toast.success('Blog created successfully');
         })
         .catch(error => {
+            if (error.response.data.message === 401) {
+                Toast.error('User session expired login again');
+                dispatch(adminLogout());
+            }
             Toast.error(error.response.data.message);
         });
 };
@@ -50,6 +65,10 @@ export const deleteBlog = (id, token) => dispatch => {
             Toast.success('Blog deleted successfully');
         })
         .catch(error => {
+            if (error.response.data.message === 401) {
+                Toast.error('User session expired login again');
+                dispatch(adminLogout());
+            }
             Toast.error(error.response.data.message);
         });
 };
@@ -63,6 +82,10 @@ export const getAllUsers = (token, page) => dispatch => {
             });
         })
         .catch(error => {
+            if (error.response.data.message === 401) {
+                Toast.error('User session expired login again');
+                dispatch(adminLogout());
+            }
             Toast.error(error.response.data.message);
         });
 };
@@ -74,6 +97,10 @@ export const deleteUser = (id, token) => dispatch => {
             Toast.success('User deleted successfully');
         })
         .catch(error => {
+            if (error.response.data.message === 401) {
+                Toast.error('User session expired login again');
+                dispatch(adminLogout());
+            }
             Toast.error(error.response.data.message);
         });
 };

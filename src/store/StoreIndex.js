@@ -4,5 +4,6 @@ export {
     getAllBlogs,
     deleteBlog,
     getAllUsers,
-    deleteUser
+    deleteUser,
+    adminLogout
 } from './admin/actions/actionCreators';
