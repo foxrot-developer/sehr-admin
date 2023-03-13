@@ -2,11 +2,14 @@ import React from 'react';
 import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import { AiOutlineDashboard, AiOutlineShop, AiOutlineShoppingCart, AiOutlineNotification } from 'react-icons/ai';
 import { BsPeople } from 'react-icons/bs';
-import { FaRegMoneyBillAlt } from 'react-icons/fa';
+import { FaRegMoneyBillAlt ,FaCity } from 'react-icons/fa';
 import { ImBlog } from 'react-icons/im';
 import { MdPeopleOutline, MdCardMembership, MdOutlineCategory } from 'react-icons/md';
 import { TbTarget } from 'react-icons/tb';
 import { NavLink } from 'react-router-dom';
+import {SiProducthunt} from 'react-icons/si';
+import {MdCastForEducation,MdGrade,MdBusiness} from 'react-icons/md'
+import {BiCategoryAlt} from 'react-icons/bi'
 
 import '../assets/css/sidebar-nav.css';
 
@@ -26,6 +29,12 @@ const SidebarNav = () => {
                 <NavLink to='/dashboard/notifications' className='menu-item-link'><MenuItem><AiOutlineNotification className='menu-icon' /> Notifications</MenuItem></NavLink>
                 <NavLink to='/dashboard/memberships' className='menu-item-link'><MenuItem><MdCardMembership className='menu-icon' /> Memberships</MenuItem></NavLink>
                 <NavLink to='/dashboard/milestones' className='menu-item-link'><MenuItem><TbTarget className='menu-icon' /> Milestones</MenuItem></NavLink>
+                <NavLink to='/dashboard/provinces' className='menu-item-link'><MenuItem><SiProducthunt className='menu-icon'/>Provinces</MenuItem></NavLink>
+                <NavLink to='/dashboard/cities' className='menu-item-link'><MenuItem><FaCity className='menu-icon'/>Cities  </MenuItem></NavLink>
+                <NavLink to='/dashboard/education' className='menu-item-link'><MenuItem><MdCastForEducation className='menu-icon'/>Education</MenuItem></NavLink>
+                <NavLink to='/dashboard/grades' className='menu-item-link'><MenuItem><MdGrade className='menu-icon'/>Grade</MenuItem></NavLink>
+                <NavLink to='/dashboard/business' className='menu-item-link'><MenuItem><MdBusiness className='menu-icon'/>Business</MenuItem></NavLink>
+               
             </Menu>
         </Sidebar>
     )
