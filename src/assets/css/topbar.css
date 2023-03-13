@@ -1,0 +1,11 @@
+.bar-icons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 25px 0;
+}
+
+.bar-icon {
+  font-size: 22px;
+  margin-right: 30px;
+}

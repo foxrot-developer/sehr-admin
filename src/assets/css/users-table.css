@@ -1,0 +1,11 @@
+.pdf-icon,
+.print-icon {
+  color: #e74032;
+  font-size: 25px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.print-icon {
+  color: #317dee;
+}

@@ -1,0 +1,30 @@
+.main-navigation {
+  border-right: 1px solid #cacaca !important;
+}
+
+.menu-icon {
+  font-size: 22px;
+  margin-bottom: 3px;
+  margin-right: 5px;
+}
+
+.menu-item-link {
+  font-weight: bold;
+  color: #000;
+}
+
+.menu-item-link .menu-item .menu-anchor {
+  border-radius: 10px;
+  margin: 0 10px;
+}
+
+.menu-item-link .menu-item .menu-anchor:hover {
+  background-color: var(--primary) !important;
+  color: #000;
+}
+
+.css-mf2zkt:hover,
+.css-1bdadyq:hover {
+  background-color: var(--primary) !important;
+  color: #fff !important;
+}
