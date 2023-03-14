@@ -13,8 +13,19 @@ const Staff = lazy(() => import("../pages/Staff"));
 const Notifications = lazy(() => import("../pages/Notifications"));
 const Memberships = lazy(() => import("../pages/Memberships"));
 const Milestones = lazy(() => import("../pages/Milestones"));
-const Categories = lazy(() => import("../pages/Categories"));
 const Login = lazy(() => import("../pages/Login"));
+const Provinces = lazy(() => import("../pages/Provinces"));
+const NewProvince = lazy(() => import("../pages/NewProvince"));
+const Cities = lazy(() => import("../pages/Cities"));
+const NewCity = lazy(() => import("../pages/NewCity"));
+const Education = lazy(() => import("../pages/Education"));
+const AddEducation = lazy(() => import("../pages/AddEducation"));
+const Grades = lazy(() => import("../pages/Grades"));
+const AddGrades = lazy(() => import("../pages/AddGrades"));
+const Business = lazy(() => import("../pages/Business"));
+const AddBusiness = lazy(() => import("../pages/AddBusiness"))
+
+
 
 const NavigationRoutes = () => {
 
@@ -34,8 +45,17 @@ const NavigationRoutes = () => {
             <Route exact path='/dashboard/notifications' element={<Notifications />}></Route>
             <Route exact path='/dashboard/memberships' element={<Memberships />}></Route>
             <Route exact path='/dashboard/milestones' element={<Milestones />}></Route>
-            <Route exact path='/dashboard/categories' element={<Categories />}></Route>
-
+            <Route exact path='/dashboard/Provinces' element={<Provinces />}></Route>
+            <Route exact path='/dashboard/Provinces/new-province' element={<NewProvince />}></Route>
+            <Route exact path='/dashboard/Cities' element={<Cities />}></Route>
+            <Route exact path='/dashboard/Cities/new-city' element={<NewCity />}></Route>
+            <Route exact path='/dashboard/Education' element={<Education />}></Route>
+            <Route exact path='/dashboard/Education/add-education' element={<AddEducation />}></Route>
+            <Route exact path='/dashboard/Grades' element={<Grades />}></Route>
+            <Route exact path='/dashboard/Grades/add-grades'element={<AddGrades />}></Route>
+            <Route exact path='/dashboard/Business' element={<Business />}></Route>
+            <Route exact path='/dashboard/Business/add-Business' element={<AddBusiness />}></Route>
+           
             <Route
                 path="*"
                 element={<Navigate to="/" />}
@@ -52,7 +72,6 @@ const NavigationRoutes = () => {
             />
         </Routes>
     )
-
     return routes;
 }
 

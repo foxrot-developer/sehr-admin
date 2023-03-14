@@ -1,11 +1,15 @@
 import React from 'react';
 import { Container, Row } from 'react-bootstrap';
-import UsersTable from '../components/users/UsersTable';
 import PageHeader from '../shared/PageHeader';
 import SidebarNav from '../shared/SidebarNav';
 import TopBar from '../shared/TopBar';
+import { useNavigate } from 'react-router-dom';
+import GradesTable from '../components/grades/GradesTable';
 
-const Categories = () => {
+const Grades = () => {
+
+    const navigate = useNavigate();
+
     return (
         <Row className='w-100'>
             <div className='page-container'>
@@ -14,10 +18,10 @@ const Categories = () => {
                     <Container fluid>
                         <TopBar />
                         <Row>
-                            <PageHeader title="Categories List" subtitle="Manage Categories" btnText="Add New Category" />
+                            <PageHeader title="Grade List" subtitle="Manage Grades" btnText="Add New Grade" onClick={() => navigate('/dashboard/grades/add-grades')} />
                         </Row>
                         <Row>
-                            <UsersTable />
+                            <GradesTable />
                         </Row>
                     </Container>
                 </main>
@@ -26,4 +30,4 @@ const Categories = () => {
     )
 }
 
-export default Categories;
+export default Grades;
