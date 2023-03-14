@@ -24,6 +24,7 @@ const Grades = lazy(() => import("../pages/Grades"));
 const AddGrades = lazy(() => import("../pages/AddGrades"));
 const Business = lazy(() => import("../pages/Business"));
 const AddBusiness = lazy(() => import("../pages/AddBusiness"))
+const Categories = lazy(() => import("../pages/Categories"))
 
 
 
@@ -36,6 +37,7 @@ const NavigationRoutes = () => {
             {/** Admin */}
             <Route exact path='/' element={<Home />}></Route>
             <Route exact path='/dashboard/users' element={<Users />}></Route>
+            <Route exact path='/dashboard/categories' element={<Categories />}></Route>
             <Route exact path='/dashboard/commission' element={<Commission />}></Route>
             <Route exact path='/dashboard/orders' element={<Orders />}></Route>
             <Route exact path='/dashboard/shops' element={<Shops />}></Route>
@@ -52,10 +54,10 @@ const NavigationRoutes = () => {
             <Route exact path='/dashboard/Education' element={<Education />}></Route>
             <Route exact path='/dashboard/Education/add-education' element={<AddEducation />}></Route>
             <Route exact path='/dashboard/Grades' element={<Grades />}></Route>
-            <Route exact path='/dashboard/Grades/add-grades'element={<AddGrades />}></Route>
+            <Route exact path='/dashboard/Grades/add-grades' element={<AddGrades />}></Route>
             <Route exact path='/dashboard/Business' element={<Business />}></Route>
             <Route exact path='/dashboard/Business/add-Business' element={<AddBusiness />}></Route>
-           
+
             <Route
                 path="*"
                 element={<Navigate to="/" />}

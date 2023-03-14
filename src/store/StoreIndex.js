@@ -5,5 +5,19 @@ export {
     deleteBlog,
     getAllUsers,
     deleteUser,
-    adminLogout
+    adminLogout,
+    addProvince,
+    deleteProvince,
+    getAllProvinces,
+    getAllCities,
+    addCity,
+    deleteCity,
+    getAllEducations,
+    addEducation,
+    deleteEducation,
+    getAllGrades,
+    deleteGrade,
+    addGrade,
+    getAllCategories,
+    deleteCategory
 } from './admin/actions/actionCreators';

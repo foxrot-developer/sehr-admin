@@ -5,7 +5,12 @@ const initialState = {
     admin: {},
     token: '',
     blogs: {},
-    users: {}
+    users: {},
+    provinces: [],
+    cities: {},
+    educations: {},
+    grades: {},
+    categories: {},
 };
 
 const AdminReducer = (state = initialState, action) => {
@@ -26,13 +31,43 @@ const AdminReducer = (state = initialState, action) => {
                 ...state,
                 users: action.payload
             };
+        case actionTypes.ALL_PROVINCES:
+            return {
+                ...state,
+                provinces: action.payload
+            };
+        case actionTypes.ALL_CITIES:
+            return {
+                ...state,
+                cities: action.payload
+            };
+        case actionTypes.ALL_EDUCATIONS:
+            return {
+                ...state,
+                educations: action.payload
+            };
+        case actionTypes.ALL_GRADES:
+            return {
+                ...state,
+                grades: action.payload
+            };
+        case actionTypes.ALL_CATEGORIES:
+            return {
+                ...state,
+                categories: action.payload
+            };
         case actionTypes.ADMIN_LOGOUT:
             return {
                 isLogin: false,
                 admin: {},
                 token: '',
                 blogs: {},
-                users: {}
+                users: {},
+                provinces: [],
+                cities: {},
+                educations: {},
+                grades: {},
+                categories: {},
             };
         default:
             return state;

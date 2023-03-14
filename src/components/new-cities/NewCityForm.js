@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Form, Formik } from 'formik';
+import React from 'react';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { createBlog } from '../../store/StoreIndex';
+import { addCity } from '../../store/StoreIndex';
 import TextField from '../../shared/TextField';
 
 const NewCityForm = () => {
@@ -14,30 +14,24 @@ const NewCityForm = () => {
     const navigate = useNavigate();
 
     const token = useSelector(state => state.admin.token);
-
-    const [blogImages, setBlogImages] = useState('');
+    const provinces = useSelector(state => state.admin.provinces);
 
     const validValues = {
         title: '',
-        description: '',
-        content: '',
+        province: provinces[0]?.id
     };
 
     const errorSchema = Yup.object().shape({
         title: Yup.string().required('Title is required'),
-        description: Yup.string().required('Description is required'),
-        content: Yup.string().required('Content is required')
+        province: Yup.string().required('Province is required')
     });
 
     const loginHandler = (values) => {
-        const data = new FormData();
-        data.append('title', values.title);
-        data.append('description', values.description);
-        data.append('content', values.content);
-        if (blogImages) {
-            data.append('postMedia', blogImages);
-        }
-        dispatch(createBlog(data, token, navigate));
+        const data = {
+            title: values.title,
+            provienceId: values.province
+        };
+        dispatch(addCity(data, token, navigate));
     }
 
     return (
@@ -57,7 +51,13 @@ const NewCityForm = () => {
                                     <TextField label='Title' name='title' type='text' />
                                 </Col>
                                 <Col xs='12' md='6' lg='4'>
-                                    <TextField label='id' name='id' type='text' />
+                                    <label htmlFor='province' className="form-label">Province</label>
+                                    <Field as="select" name="province" className='form-control shadow-none'>
+                                        {provinces.length > 0 && provinces.map((province, index) => {
+                                            return <option key={index} value={province.id}>{province.title}</option>
+                                        })}
+                                    </Field>
+                                    <ErrorMessage component='small' name="province" className='text-danger fw-bold' />
                                 </Col>
                                 <div className='text-center'>
                                     <Button type='submit' className='px-5 btn custom-btn'>

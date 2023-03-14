@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { createBlog } from '../../store/StoreIndex';
+import { addProvince } from '../../store/StoreIndex';
 import TextField from '../../shared/TextField';
 
 const NewProvinceForm = () => {
@@ -18,26 +18,18 @@ const NewProvinceForm = () => {
     const [blogImages, setBlogImages] = useState('');
 
     const validValues = {
-        title: '',
-        description: '',
-        content: '',
+        title: ''
     };
 
     const errorSchema = Yup.object().shape({
-        title: Yup.string().required('Title is required'),
-        description: Yup.string().required('Description is required'),
-        content: Yup.string().required('Content is required')
+        title: Yup.string().required('Title is required')
     });
 
     const loginHandler = (values) => {
-        const data = new FormData();
-        data.append('title', values.title);
-        data.append('description', values.description);
-        data.append('content', values.content);
-        if (blogImages) {
-            data.append('postMedia', blogImages);
-        }
-        dispatch(createBlog(data, token, navigate));
+        const data = {
+            title: values.title
+        };
+        dispatch(addProvince(data, token, navigate));
     }
 
     return (
@@ -56,7 +48,7 @@ const NewProvinceForm = () => {
                                 <Col xs='12' md='6' lg='4'>
                                     <TextField label='Title' name='title' type='text' />
                                 </Col>
-                                
+
                                 <div className='text-center'>
                                     <Button type='submit' className='px-5 btn custom-btn'>
                                         Add Province

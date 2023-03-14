@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { createBlog } from '../../store/StoreIndex';
+import { addGrade } from '../../store/StoreIndex';
 import TextField from '../../shared/TextField';
 
 const AddGradesForm = () => {
@@ -15,29 +15,22 @@ const AddGradesForm = () => {
 
     const token = useSelector(state => state.admin.token);
 
-    const [blogImages, setBlogImages] = useState('');
-
     const validValues = {
         title: '',
-        description: '',
-        content: '',
+        salesTarget: 0,
     };
 
     const errorSchema = Yup.object().shape({
         title: Yup.string().required('Title is required'),
-        description: Yup.string().required('Description is required'),
-        content: Yup.string().required('Content is required')
+        salesTarget: Yup.number().required('Sales target is required'),
     });
 
     const loginHandler = (values) => {
-        const data = new FormData();
-        data.append('title', values.title);
-        data.append('description', values.description);
-        data.append('content', values.content);
-        if (blogImages) {
-            data.append('postMedia', blogImages);
-        }
-        dispatch(createBlog(data, token, navigate));
+        const data = {
+            title: values.title,
+            salesTarget: values.salesTarget
+        };
+        dispatch(addGrade(data, token, navigate));
     }
 
     return (
@@ -57,7 +50,7 @@ const AddGradesForm = () => {
                                     <TextField label='Title' name='title' type='text' />
                                 </Col>
                                 <Col xs='12' md='6' lg='4'>
-                                    <TextField label='Sales Target' name='Sale' type='text' />
+                                    <TextField label='Sales Target' name='salesTarget' type='number' />
                                 </Col>
                                 <div className='text-center'>
                                     <Button type='submit' className='px-5 btn custom-btn'>
