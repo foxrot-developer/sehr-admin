@@ -72,6 +72,8 @@ export const deleteBlog = (id, token) => dispatch => {
         });
 };
 
+
+
 export const getAllUsers = (token, page) => dispatch => {
     Axios.get(`user?page=${page}&limit=10`, { headers: { "Authorization": `Bearer ${token}` } })
         .then(response => {

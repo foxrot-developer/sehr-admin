@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import ViewBlog from '../pages/ViewBlog';
 
 const Home = lazy(() => import("../pages/Home"));
 const Users = lazy(() => import("../pages/Users"));
@@ -26,9 +27,6 @@ const Business = lazy(() => import("../pages/Business"));
 const AddBusiness = lazy(() => import("../pages/AddBusiness"))
 const Categories = lazy(() => import("../pages/Categories"))
 const AddCategory = lazy(() => import("../pages/AddCategory"))
-
-
-
 const NavigationRoutes = () => {
 
     const isLogin = useSelector(state => state.admin.isLogin);
@@ -59,6 +57,7 @@ const NavigationRoutes = () => {
             <Route exact path='/dashboard/Grades/add-grades' element={<AddGrades />}></Route>
             <Route exact path='/dashboard/Business' element={<Business />}></Route>
             <Route exact path='/dashboard/Business/add-Business' element={<AddBusiness />}></Route>
+            <Route exact path="/blogs/posts/:id" component={ViewBlog} />
 
             <Route
                 path="*"

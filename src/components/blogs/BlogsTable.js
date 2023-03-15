@@ -4,11 +4,12 @@ import { AiOutlineDelete } from 'react-icons/ai';
 import { BsEye } from 'react-icons/bs';
 import { CiEdit } from 'react-icons/ci';
 import { useDispatch, useSelector } from 'react-redux';
+import {useNavigate} from 'react-router-dom'
 
 import { getAllBlogs, deleteBlog } from '../../store/StoreIndex';
 
 const BlogsTable = () => {
-
+    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const token = useSelector(state => state.admin.token);
@@ -52,7 +53,9 @@ const BlogsTable = () => {
                             <td>{item.comments.length}</td>
                             <td>
                                 <div>
-                                    <BsEye className='action-icon eye-icon' />
+                                <button onClick={() => navigate(`/blogs/posts/${item.id}`)} className='action-icon eye-icon'>
+  <BsEye />
+</button>
                                     {/**<CiEdit className='action-icon edit-icon' />**/}
                                     <AiOutlineDelete onClick={() => dispatch(deleteBlog(item.id, token))} className='action-icon delete-icon' />
                                 </div>

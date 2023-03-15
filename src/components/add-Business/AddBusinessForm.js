@@ -14,7 +14,6 @@ const AddBusinessForm = () => {
     const navigate = useNavigate();
 
     const token = useSelector(state => state.admin.token);
-
     const [blogImages, setBlogImages] = useState('');
 
     const validValues = {
