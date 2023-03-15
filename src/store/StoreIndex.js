@@ -19,5 +19,7 @@ export {
     deleteGrade,
     addGrade,
     getAllCategories,
-    deleteCategory
+    deleteCategory,
+    getAllCommissions,
+    addCategory
 } from './admin/actions/actionCreators';

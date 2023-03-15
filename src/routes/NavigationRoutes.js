@@ -25,6 +25,7 @@ const AddGrades = lazy(() => import("../pages/AddGrades"));
 const Business = lazy(() => import("../pages/Business"));
 const AddBusiness = lazy(() => import("../pages/AddBusiness"))
 const Categories = lazy(() => import("../pages/Categories"))
+const AddCategory = lazy(() => import("../pages/AddCategory"))
 
 
 
@@ -38,6 +39,7 @@ const NavigationRoutes = () => {
             <Route exact path='/' element={<Home />}></Route>
             <Route exact path='/dashboard/users' element={<Users />}></Route>
             <Route exact path='/dashboard/categories' element={<Categories />}></Route>
+            <Route exact path='/dashboard/categories/new-category' element={<AddCategory />}></Route>
             <Route exact path='/dashboard/commission' element={<Commission />}></Route>
             <Route exact path='/dashboard/orders' element={<Orders />}></Route>
             <Route exact path='/dashboard/shops' element={<Shops />}></Route>

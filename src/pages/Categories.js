@@ -19,7 +19,7 @@ const Categories = () => {
                     <Container fluid>
                         <TopBar />
                         <Row>
-                            <PageHeader title="Categories List" subtitle="Manage Categories" btnText="Add New Category" onClick={() => navigate('/dashboard/blogs/new-blog')} />
+                            <PageHeader title="Categories List" subtitle="Manage Categories" btnText="Add New Category" onClick={() => navigate('/dashboard/categories/new-category')} />
                         </Row>
                         <Row>
                             <CategoriesTable />

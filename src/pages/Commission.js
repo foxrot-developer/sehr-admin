@@ -4,7 +4,7 @@ import { Container, Row } from 'react-bootstrap';
 import SidebarNav from '../shared/SidebarNav';
 import TopBar from '../shared/TopBar';
 import PageHeader from '../shared/PageHeader';
-import UsersTable from '../components/users/UsersTable';
+import CommissionsTable from '../components/commission/CommissionsTable';
 
 const Commission = () => {
     return (
@@ -18,7 +18,7 @@ const Commission = () => {
                             <PageHeader title="Commissions List" subtitle="Manage Comissions" btnText="Add New Commission" />
                         </Row>
                         <Row>
-                            <UsersTable />
+                            <CommissionsTable />
                         </Row>
                     </Container>
                 </main>

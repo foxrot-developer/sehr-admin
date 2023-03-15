@@ -11,6 +11,7 @@ const initialState = {
     educations: {},
     grades: {},
     categories: {},
+    commissions: {},
 };
 
 const AdminReducer = (state = initialState, action) => {
@@ -56,6 +57,11 @@ const AdminReducer = (state = initialState, action) => {
                 ...state,
                 categories: action.payload
             };
+        case actionTypes.ALL_COMMISSIONS:
+            return {
+                ...state,
+                commissions: action.payload
+            };
         case actionTypes.ADMIN_LOGOUT:
             return {
                 isLogin: false,
@@ -68,6 +74,7 @@ const AdminReducer = (state = initialState, action) => {
                 educations: {},
                 grades: {},
                 categories: {},
+                commissions: {},
             };
         default:
             return state;

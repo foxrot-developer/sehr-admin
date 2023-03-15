@@ -313,11 +313,44 @@ export const getAllCategories = () => dispatch => {
         });
 };
 
+export const addCategory = (data, token, navigate) => dispatch => {
+    Axios.post('category', data, { headers: { "Authorization": `Bearer ${token}` } })
+        .then(response => {
+            dispatch(getAllCategories());
+            navigate('/dashboard/categories');
+            Toast.success('Category added successfully');
+        })
+        .catch(error => {
+            if (error.response.data.message === 401) {
+                Toast.error('User session expired login again');
+                dispatch(adminLogout());
+            }
+            Toast.error(error.response.data.message);
+        });
+};
+
 export const deleteCategory = (id, token) => dispatch => {
     Axios.delete(`category/${id}`, { headers: { "Authorization": `Bearer ${token}` } })
         .then(response => {
             dispatch(getAllCategories());
             Toast.success('Category deleted successfully');
+        })
+        .catch(error => {
+            if (error.response.data.message === 401) {
+                Toast.error('User session expired login again');
+                dispatch(adminLogout());
+            }
+            Toast.error(error.response.data.message);
+        });
+};
+
+export const getAllCommissions = () => dispatch => {
+    Axios.get('comission')
+        .then(response => {
+            dispatch({
+                type: actionTypes.ALL_COMMISSIONS,
+                payload: response.data
+            });
         })
         .catch(error => {
             if (error.response.data.message === 401) {

@@ -5,10 +5,10 @@ import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { addGrade } from '../../store/StoreIndex';
+import { addCategory } from '../../store/StoreIndex';
 import TextField from '../../shared/TextField';
 
-const AddGradesForm = () => {
+const AddCategoryForm = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -17,26 +17,23 @@ const AddGradesForm = () => {
 
     const validValues = {
         title: '',
-        salesTarget: 0,
     };
 
     const errorSchema = Yup.object().shape({
         title: Yup.string().required('Title is required'),
-        salesTarget: Yup.number().required('Sales target is required'),
     });
 
     const loginHandler = (values) => {
         const data = {
             title: values.title,
-            salesTarget: values.salesTarget
         };
-        dispatch(addGrade(data, token, navigate));
+        dispatch(addCategory(data, token, navigate));
     }
 
     return (
         <Container>
-            <h3 className='mt-3 fw-bold'>Add Grades</h3>
-            <p>Add Grades Details</p>
+            <h3 className='mt-3 fw-bold'>Add Category</h3>
+            <p>Add Category Details</p>
             <Formik
                 initialValues={validValues}
                 validationSchema={errorSchema}
@@ -49,12 +46,9 @@ const AddGradesForm = () => {
                                 <Col xs='12' md='6' lg='4'>
                                     <TextField label='Title' name='title' type='text' />
                                 </Col>
-                                <Col xs='12' md='6' lg='4'>
-                                    <TextField label='Sales Target' name='salesTarget' type='number' />
-                                </Col>
                                 <div className='text-center'>
                                     <Button type='submit' className='px-5 btn custom-btn'>
-                                        Add Grades
+                                        Add Category
                                     </Button>
                                 </div>
                             </Row>
@@ -66,4 +60,4 @@ const AddGradesForm = () => {
     )
 }
 
-export default AddGradesForm;
+export default AddCategoryForm;
